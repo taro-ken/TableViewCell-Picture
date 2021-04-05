@@ -7,15 +7,20 @@
 
 import UIKit
 
-class AddCellViewController: UIViewController {
+final class AddCellViewController: UIViewController {
     
-    var list = AddModel.init()
+private var list = AddModel.init()
     
     
     
-    @IBOutlet weak var pictureView: UIView!
+    @IBOutlet private weak var imageView: UIImageView! {
+        didSet {
+            // デフォルトの画像を表示する
+            imageView.image = UIImage(named: "no_image.png")
+        }
+    }
     
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet private weak var pickerView: UIPickerView!
     
     
     override func viewDidLoad() {
@@ -24,10 +29,60 @@ class AddCellViewController: UIViewController {
         pickerView.dataSource = self
         
     }
+    
+    @IBAction private func selectPicture(_ sender: UIButton) {
+        // カメラロールが利用可能か？
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            // 写真を選ぶビュー
+            let picturepickerView = UIImagePickerController()
+            // 写真の選択元をカメラロールにする
+            // 「.camera」にすればカメラを起動できる
+            picturepickerView.sourceType = .photoLibrary
+            // デリゲート
+            picturepickerView.delegate = self
+            // ビューに表示
+            self.present(picturepickerView, animated: true)
+        }
+    }
+
+    @IBAction private func deletePicture(_ sender: UIButton) {
+        // アラート表示
+        showAlert()
+    }
+
+    /// アラート表示
+    private func showAlert() {
+        let alert = UIAlertController(title: "確認",
+                                      message: "画像を削除してもいいですか？",
+                                      preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK",
+                                     style: .default,
+                                     handler:{(action: UIAlertAction) -> Void in
+                                        // デフォルトの画像を表示する
+                                        self.imageView.image = UIImage(named: "no_image.png")
+        })
+        let cancelButton = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+
+        // アラートにボタン追加
+        alert.addAction(okButton)
+        alert.addAction(cancelButton)
+
+        // アラート表示
+        present(alert, animated: true, completion: nil)
+    }
 }
     
-    
-    
+extension AddCellViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    // 写真を選んだ後に呼ばれる処理
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // 選択した写真を取得する
+        let image = info[.originalImage] as! UIImage
+        // ビューに表示する
+        imageView.image = image
+        // 写真を選ぶビューを引っ込める
+        self.dismiss(animated: true)
+    }
+}
 extension AddCellViewController: UIPickerViewDelegate {
     
     
@@ -53,30 +108,4 @@ extension AddCellViewController : UIPickerViewDataSource {
     
 }
 
-
-extension AddCellViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    /// UIImagePickerController カメラを起動する
-        /// - Parameter sender: "UIImagePickerController"ボタン
-        @IBAction func addPicture(_ sender: Any) {
-            let picker = UIImagePickerController()
-            picker.sourceType = .camera
-            picker.delegate = self
-            // UIImagePickerController カメラを起動する
-            present(picker, animated: true, completion: nil)
-        }
-
-        /// シャッターボタンを押下した際、確認メニューに切り替わる
-        /// - Parameters:
-        ///   - picker: ピッカー
-        ///   - info: 写真情報
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            let image = info[.originalImage] as! UIImage
-            // "写真を使用"を押下した際、写真アプリに保存する
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-            self.view.addSubview(UIImage)
-            // UIImagePickerController カメラが閉じる
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
 
