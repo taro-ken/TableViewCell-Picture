@@ -22,15 +22,22 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UD0-rv-DhW">
                                 <rect key="frame" x="0.0" y="518" width="414" height="67"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AB-ds-txO">
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="67"/>
+                                        <state key="normal" image="camera.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="selectCamera:" destination="3XJ-6m-1vh" eventType="touchUpInside" id="Zwc-nN-oIt"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNW-Xn-0od">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="67"/>
-                                        <state key="normal" image="camera.on.rectangle.fill" catalog="system"/>
+                                        <rect key="frame" x="138" y="0.0" width="138" height="67"/>
+                                        <state key="normal" image="folder.fill" catalog="system"/>
                                         <connections>
                                             <action selector="selectPicture:" destination="3XJ-6m-1vh" eventType="touchUpInside" id="qXA-8t-O6t"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5S-9A-2Ne">
-                                        <rect key="frame" x="207" y="0.0" width="207" height="67"/>
+                                        <rect key="frame" x="276" y="0.0" width="138" height="67"/>
                                         <state key="normal" image="trash" catalog="system"/>
                                         <connections>
                                             <action selector="deletePicture:" destination="3XJ-6m-1vh" eventType="touchUpInside" id="PPy-ZB-IbG"/>
@@ -85,7 +92,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera.on.rectangle.fill" catalog="system" width="128" height="96"/>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
+        <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

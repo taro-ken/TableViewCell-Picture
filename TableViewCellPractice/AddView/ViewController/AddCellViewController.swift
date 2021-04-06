@@ -44,6 +44,23 @@ private var list = AddModel.init()
             self.present(picturepickerView, animated: true)
         }
     }
+    
+    
+    @IBAction func selectCamera(_ sender: UIButton) {
+        // カメラロールが利用可能か？
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            // 写真を選ぶビュー
+            let picturepickerView = UIImagePickerController()
+            // 写真の選択元をカメラロールにする
+            // 「.camera」にすればカメラを起動できる
+            picturepickerView.sourceType = .camera
+            // デリゲート
+            picturepickerView.delegate = self
+            // ビューに表示
+            self.present(picturepickerView, animated: true)
+        }
+    }
+    
 
     @IBAction private func deletePicture(_ sender: UIButton) {
         // アラート表示
