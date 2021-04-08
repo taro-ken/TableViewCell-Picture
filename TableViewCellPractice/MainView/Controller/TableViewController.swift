@@ -12,7 +12,7 @@ final class TableViewController: UIViewController {
     private let CELL_NIB_NAME = "TableViewCell"
     private let CELL_ID = "TableViewCell"
     
-    var dummyModel:[CellModel]{
+    var Model:[CellModel]{
         [
             CellModel.init(number: "1", menu: "hoge"),
             CellModel.init(number: "1", menu: "hoge"),
@@ -47,7 +47,7 @@ final class TableViewController: UIViewController {
 extension TableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummyModel.count
+        return Model.count
         
     }
     
@@ -56,7 +56,7 @@ extension TableViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as? TableViewCell else {
             return UITableViewCell()
         }
-        let user = dummyModel[indexPath.row]
+        let user = Model[indexPath.row]
         cell.configure(contents: user)
         return cell
     }
