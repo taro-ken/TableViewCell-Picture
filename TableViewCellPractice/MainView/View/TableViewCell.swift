@@ -7,12 +7,13 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+final class TableViewCell: UITableViewCell {
     
     @IBOutlet private weak var pctureImage: UIImageView!
     @IBOutlet private weak var numberName: UILabel!
     @IBOutlet private weak var menuName: UILabel!
     
+
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -23,6 +24,11 @@ class TableViewCell: UITableViewCell {
     
     
     func configure(contents: CellModel) {
+        
+        if let pictureImagestr = contents.image {
+        
+        }
+        
         menuName.text = contents.menu
         numberName.text = contents.number
         

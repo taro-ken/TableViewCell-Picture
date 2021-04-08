@@ -46,7 +46,7 @@ private var list = AddModel.init()
     }
     
     
-    @IBAction func selectCamera(_ sender: UIButton) {
+    @IBAction private func selectCamera(_ sender: UIButton) {
         // カメラロールが利用可能か？
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             // 写真を選ぶビュー
