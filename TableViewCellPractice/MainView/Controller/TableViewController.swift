@@ -14,16 +14,7 @@ final class TableViewController: UIViewController {
     
     var Model:[CellModel]{
         [
-            CellModel.init(number: "1", menu: "hoge"),
-            CellModel.init(number: "1", menu: "hoge"),
-            CellModel.init(number: "1", menu: "hoge"),
-            CellModel.init(number: "1", menu: "hoge"),
-            CellModel.init(number: "1", menu: "hoge"),
-            CellModel.init(number: "1", menu: "hoge"),
-            CellModel.init(number: "1", menu: "hoge"),
-            CellModel.init(number: "1", menu: "hoge"),
-            CellModel.init(number: "1", menu: "hoge"),
-            CellModel.init(number: "1", menu: "hoge"),
+            CellModel.init(menu: "肩", image: "koko")
         ]
     }
     

@@ -10,7 +10,6 @@ import UIKit
 final class TableViewCell: UITableViewCell {
     
     @IBOutlet private weak var pctureImage: UIImageView!
-    @IBOutlet private weak var numberName: UILabel!
     @IBOutlet private weak var menuName: UILabel!
     
 
@@ -18,7 +17,6 @@ final class TableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         pctureImage.image = nil
-        numberName.text = nil
         menuName.text = nil
     }
     
@@ -30,7 +28,7 @@ final class TableViewCell: UITableViewCell {
         }
         
         menuName.text = contents.menu
-        numberName.text = contents.number
+    
         
     }
     

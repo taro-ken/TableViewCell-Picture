@@ -8,6 +8,6 @@
 import Foundation
 
 struct AddModel {
-    var List = ["筋トレ","有酸素","食事制限"]
+    var List = ["肩","胸","背中","腕","足","腹","有酸素","休み"]
 }
 

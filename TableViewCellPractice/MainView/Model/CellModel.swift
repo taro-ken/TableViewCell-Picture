@@ -8,7 +8,6 @@
 import Foundation
 
 struct CellModel {
-    var number: String
     var menu: String
     var image:String?
 
