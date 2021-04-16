@@ -12,10 +12,21 @@ final class TableViewController: UIViewController {
     private let CELL_NIB_NAME = "TableViewCell"
     private let CELL_ID = "TableViewCell"
     
-    var Model:[CellModel]{
-        [
-            CellModel.init(menu: "肩", image: "koko")
-        ]
+    private var models:[Model] = []
+        
+    
+    private var selectedModel: Model = Model.init(menu: [])
+    
+    static func makeFromStoryboard() -> TableViewController {
+        let vc = UIStoryboard.tableViewController
+        return vc
+      }
+    
+    
+    
+    @IBAction  func add(_ sender: Any) {
+        Router.shared.showAddView(from: self, selectedModel: selectedModel)
+        
     }
     
     @IBOutlet private weak var tableView: UITableView! {
@@ -38,7 +49,7 @@ final class TableViewController: UIViewController {
 extension TableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Model.count
+        return models.count
         
     }
     
@@ -47,7 +58,7 @@ extension TableViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as? TableViewCell else {
             return UITableViewCell()
         }
-        let user = Model[indexPath.row]
+        let user = models[indexPath.row]
         cell.configure(contents: user)
         return cell
     }
@@ -58,5 +69,14 @@ extension TableViewController: UITableViewDataSource {
     
 }
 extension TableViewController: UITableViewDelegate {
+    
+}
+
+
+extension TableViewController: AddCellViewControllerDelegate {
+    func selected(model: Model) {
+     models.append(model)
+      //   tableView.reloadData()
+    }
     
 }

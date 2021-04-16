@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hoa-yJ-CEy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,7 +17,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H3t-FM-6rS">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fG-SI-6iQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="8wJ-Rv-s6Y"/>
+                                    <constraint firstAttribute="height" constant="44" id="o9l-eZ-CdA"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="リスト" id="SNA-wl-7qp">
+                                        <barButtonItem key="rightBarButtonItem" title="➕" id="nFQ-JW-Blu">
+                                            <connections>
+                                                <action selector="add:" destination="BYZ-38-t0r" id="qXJ-I2-lXZ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HEG-G7-2QS">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -24,54 +41,24 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="H3t-FM-6rS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4sD-O0-aZE"/>
-                            <constraint firstItem="H3t-FM-6rS" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ADn-g2-wJy"/>
-                            <constraint firstItem="H3t-FM-6rS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BvY-68-e9A"/>
-                            <constraint firstItem="H3t-FM-6rS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WCr-iB-iyn"/>
+                            <constraint firstItem="6fG-SI-6iQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9ed-18-opc"/>
+                            <constraint firstItem="HEG-G7-2QS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GRU-Sn-H31"/>
+                            <constraint firstItem="HEG-G7-2QS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NyX-XB-Uat"/>
+                            <constraint firstItem="HEG-G7-2QS" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="QUc-Bj-UhI"/>
+                            <constraint firstItem="HEG-G7-2QS" firstAttribute="top" secondItem="6fG-SI-6iQ" secondAttribute="bottom" id="cTf-iK-F0f"/>
+                            <constraint firstItem="6fG-SI-6iQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eph-KT-2UP"/>
+                            <constraint firstItem="6fG-SI-6iQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="meY-By-dTL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6fG-SI-6iQ" secondAttribute="bottom" constant="774" id="s9A-0o-GaZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="OfD-uP-Ypp">
-                        <barButtonItem key="rightBarButtonItem" title="➕" id="Utu-m7-irZ">
-                            <connections>
-                                <segue destination="Kof-53-twV" kind="show" id="FJJ-zO-sXt"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="OfD-uP-Ypp"/>
                     <connections>
-                        <outlet property="tableView" destination="H3t-FM-6rS" id="eLc-Tv-jHI"/>
+                        <outlet property="tableView" destination="HEG-G7-2QS" id="CD1-br-MwN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="763.768115942029" y="83.705357142857139"/>
-        </scene>
-        <!--AddCell-->
-        <scene sceneID="qDG-th-fOD">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AddCell" id="Kof-53-twV" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="aLO-NM-k8V"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nsw-ws-rrO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1591" y="-88"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="6wz-9p-Vcz">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hoa-yJ-CEy" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="haB-of-oY2">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="EJa-bC-vI3"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V2x-YG-QuY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-146.37681159420291" y="83.705357142857139"/>
         </scene>
     </scenes>
     <resources>

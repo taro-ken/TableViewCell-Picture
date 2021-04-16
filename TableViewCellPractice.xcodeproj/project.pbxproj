@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B476EE312615FE2300A844E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B476EE302615FE2300A844E7 /* AppDelegate.swift */; };
-		B476EE332615FE2300A844E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B476EE322615FE2300A844E7 /* SceneDelegate.swift */; };
 		B476EE352615FE2300A844E7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B476EE342615FE2300A844E7 /* TableViewController.swift */; };
 		B476EE382615FE2300A844E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B476EE362615FE2300A844E7 /* Main.storyboard */; };
 		B476EE3A2615FE2600A844E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B476EE392615FE2600A844E7 /* Assets.xcassets */; };
@@ -20,7 +19,8 @@
 		B476EE712615FE7F00A844E7 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B476EE6F2615FE7F00A844E7 /* TableViewCell.xib */; };
 		B48479BD261747BA0094815F /* AddCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48479BC261747BA0094815F /* AddCellViewController.swift */; };
 		B48479C8261748650094815F /* AddCell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B48479C7261748650094815F /* AddCell.storyboard */; };
-		B48479D226174B4A0094815F /* AddModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48479D126174B4A0094815F /* AddModel.swift */; };
+		B4F764412621C4D8008F0CCD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F764402621C4D8008F0CCD /* Router.swift */; };
+		B4F764472621D7BF008F0CCD /* StoryboardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F764462621D7BF008F0CCD /* StoryboardSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,6 @@
 /* Begin PBXFileReference section */
 		B476EE2D2615FE2300A844E7 /* TableViewCellPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewCellPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B476EE302615FE2300A844E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B476EE322615FE2300A844E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B476EE342615FE2300A844E7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		B476EE372615FE2300A844E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B476EE392615FE2600A844E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,7 +59,8 @@
 		B476EE6F2615FE7F00A844E7 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		B48479BC261747BA0094815F /* AddCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCellViewController.swift; sourceTree = "<group>"; };
 		B48479C7261748650094815F /* AddCell.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddCell.storyboard; sourceTree = "<group>"; };
-		B48479D126174B4A0094815F /* AddModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddModel.swift; sourceTree = "<group>"; };
+		B4F764402621C4D8008F0CCD /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		B4F764462621D7BF008F0CCD /* StoryboardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +114,10 @@
 				B48479BB261747820094815F /* AddView */,
 				B48479BA2617474B0094815F /* MainView */,
 				B476EE302615FE2300A844E7 /* AppDelegate.swift */,
-				B476EE322615FE2300A844E7 /* SceneDelegate.swift */,
 				B476EE392615FE2600A844E7 /* Assets.xcassets */,
 				B476EE3B2615FE2600A844E7 /* LaunchScreen.storyboard */,
 				B476EE3E2615FE2600A844E7 /* Info.plist */,
+				B4F764452621D777008F0CCD /* Extension */,
 			);
 			path = TableViewCellPractice;
 			sourceTree = "<group>";
@@ -179,7 +179,6 @@
 		B48479BB261747820094815F /* AddView */ = {
 			isa = PBXGroup;
 			children = (
-				B48479D026174B220094815F /* Model */,
 				B48479CF26174B0F0094815F /* ViewController */,
 			);
 			path = AddView;
@@ -194,12 +193,13 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		B48479D026174B220094815F /* Model */ = {
+		B4F764452621D777008F0CCD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B48479D126174B4A0094815F /* AddModel.swift */,
+				B4F764402621C4D8008F0CCD /* Router.swift */,
+				B4F764462621D7BF008F0CCD /* StoryboardSet.swift */,
 			);
-			path = Model;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,12 +334,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F764412621C4D8008F0CCD /* Router.swift in Sources */,
 				B476EE702615FE7F00A844E7 /* TableViewCell.swift in Sources */,
 				B476EE352615FE2300A844E7 /* TableViewController.swift in Sources */,
 				B476EE312615FE2300A844E7 /* AppDelegate.swift in Sources */,
-				B476EE332615FE2300A844E7 /* SceneDelegate.swift in Sources */,
 				B48479BD261747BA0094815F /* AddCellViewController.swift in Sources */,
-				B48479D226174B4A0094815F /* AddModel.swift in Sources */,
+				B4F764472621D7BF008F0CCD /* StoryboardSet.swift in Sources */,
 				B476EE672615FE6A00A844E7 /* CellModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +519,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZCR4QT36HT;
 				INFOPLIST_FILE = TableViewCellPractice/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -538,6 +539,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZCR4QT36HT;
 				INFOPLIST_FILE = TableViewCellPractice/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
