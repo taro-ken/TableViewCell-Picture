@@ -9,27 +9,22 @@ import UIKit
 
 final class TableViewCell: UITableViewCell {
     
-    @IBOutlet private weak var pctureImage: UIImageView!
+    @IBOutlet private weak var pictureImage: UIImageView!
     @IBOutlet private weak var menuName: UILabel!
     
 
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        pctureImage.image = nil
+       // pictureImage.image = nil
         menuName.text = nil
     }
     
     
-    func configure(contents: CellModel) {
+    func configure(contents: Model) {
         
-        if let pictureImagestr = contents.image {
-        
-        }
-        
-        menuName.text = contents.menu
-    
-        
+        //pictureImage.image = UIImage.init()
+        menuName.text = contents.menu.joined()
     }
     
     

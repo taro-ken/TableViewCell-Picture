@@ -7,9 +7,39 @@
 
 import UIKit
 
+protocol AddCellViewControllerDelegate: AnyObject {
+  func selected(model: Model)
+}
+
 final class AddCellViewController: UIViewController {
     
-private var list = AddModel.init()
+    static func makeFromStoryboard() -> AddCellViewController {
+        let vc = UIStoryboard.addCellViewController
+        return vc
+      }
+    
+    //前の画面で選択されたモデル
+    private var model: Model?
+    //前の画面へ通知するためのdelegate
+    weak var delegate: AddCellViewControllerDelegate?
+    func configure(model: Model) {
+      self.model = model
+    }
+    
+    
+    private var menus = Model.init(menu: ["肩","胸","背中","腕","足","腹","有酸素","休み"])
+  
+    
+    
+    @IBAction func set(_ sender: Any) {
+        func selected(model: Model) {
+           //modelをTableViewController(前の画面へ渡す)
+           delegate?.selected(model: model)
+       }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+        
     
     
     
@@ -25,8 +55,6 @@ private var list = AddModel.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pickerView.delegate = self
-        pickerView.dataSource = self
         
     }
     
@@ -45,7 +73,7 @@ private var list = AddModel.init()
         }
     }
     
-    
+    // カメラ機能
     @IBAction private func selectCamera(_ sender: UIButton) {
         // カメラロールが利用可能か？
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -104,7 +132,7 @@ extension AddCellViewController: UIPickerViewDelegate {
     
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return list.List.count
+        return menus.menu.count
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -116,7 +144,7 @@ extension AddCellViewController: UIPickerViewDelegate {
                     titleForRow row: Int,
                     forComponent component: Int) -> String? {
         
-        return list.List[row]
+        return menus.menu[row]
     }
     
 }

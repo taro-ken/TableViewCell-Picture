@@ -7,10 +7,8 @@
 
 import Foundation
 
-struct CellModel {
-    var menu: String
-    var image:String?
-
+struct Model {
+    var menu = ["肩","胸","背中","腕","足","腹","有酸素","休み"]
 }
 
 
